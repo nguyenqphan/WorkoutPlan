@@ -1,29 +1,39 @@
 using WorkoutPlan.ViewModels;
 
-namespace WorkoutPlan.Views;
-
-public partial class ExercisePlansPage : ContentPage
+namespace WorkoutPlan.Views
 {
-    public static IServiceProvider Services { get; private set; }
-    public ExercisePlansPage()
-	{
-		InitializeComponent();
-	
-	}
-
-    public static void InitServices(IServiceProvider serviceProvider)
+    public partial class ExercisePlansPage : ContentPage
     {
-        Services = serviceProvider;
-    }
-
-    //reload plans when the page appears, so it has the latest data after creating a new plan
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-
-        if (BindingContext is ExercisePlansViewModel vm)
+        public ExercisePlansPage()
         {
-            vm.LoadPlansCommand.Execute(null);
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// When the page appears (including after returning from another page),
+        /// this method ensures that the plans list is reloaded.
+        /// </summary>
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Safely cast the BindingContext to your ViewModel
+            if (BindingContext is ExercisePlansViewModel vm)
+            {
+                // Run the command to reload the list of plans
+                vm.LoadPlansCommand.Execute(null);
+            }
+        }
+
+        /// <summary>
+        /// Called when navigating away from the page.
+        /// Reserved for unsubscribing from events if needed.
+        /// </summary>
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            // Example: if you used MessagingCenter, you could unsubscribe here
         }
     }
 }
