@@ -20,8 +20,12 @@ namespace WorkoutPlan
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+
             builder.Services.AddSingleton<IExercisePlanService, ExercisePlanService>();
-            return builder.Build();
+      
+            var app = builder.Build();
+            App.InitServices(app.Services);
+            return app;
         }
     }
 }

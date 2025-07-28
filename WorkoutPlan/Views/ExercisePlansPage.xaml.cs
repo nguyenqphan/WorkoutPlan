@@ -1,14 +1,13 @@
-namespace WorkoutPlan;
+namespace WorkoutPlan.Views;
 
-public partial class App : Application
+public partial class ExercisePlansPage : ContentPage
 {
     public static IServiceProvider Services { get; private set; }
-    public App()
-    {
-        InitializeComponent();
-
-        MainPage = new AppShell();
-    }
+    public ExercisePlansPage()
+	{
+		InitializeComponent();
+	
+	}
 
     public static void InitServices(IServiceProvider serviceProvider)
     {
