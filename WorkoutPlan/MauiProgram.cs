@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using WorkoutApp;
+using WorkoutPlan;
+using WorkoutPlan.Services;
 
 namespace WorkoutPlan
 {
@@ -19,7 +20,7 @@ namespace WorkoutPlan
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddSingleton<IExercisePlanService, ExercisePlanService>();
             return builder.Build();
         }
     }

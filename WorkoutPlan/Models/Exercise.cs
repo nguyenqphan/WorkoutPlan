@@ -1,4 +1,4 @@
-﻿namespace WorkoutApp.Models;
+﻿namespace WorkoutPlan.Models;
 
 /// <summary>
 /// Represents an individual exercise in a workout plan.

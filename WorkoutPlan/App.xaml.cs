@@ -1,4 +1,4 @@
-namespace WorkoutApp;
+namespace WorkoutPlan;
 
 public partial class App : Application
 {

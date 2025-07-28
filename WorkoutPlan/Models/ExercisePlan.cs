@@ -1,9 +1,9 @@
-﻿namespace WorkoutApp.Models;
+﻿namespace WorkoutPlan.Models;
 
 /// <summary>
 /// Represents a user's workout plan consisting of multiple exercises.
 /// </summary>
-public class WorkoutPlan
+public class ExercisePlan
 {
     /// <summary>
     /// Unique identifier for the workout plan.

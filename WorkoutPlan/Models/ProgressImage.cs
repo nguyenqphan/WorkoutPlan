@@ -1,4 +1,4 @@
-﻿namespace WorkoutApp.Models;
+﻿namespace WorkoutPlan.Models;
 
 public class ProgressImage
 {
