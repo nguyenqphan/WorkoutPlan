@@ -74,6 +74,9 @@
 	  <MauiXaml Update="AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\CreateExercisePlanPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ExercisePlansPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -61,9 +61,8 @@ public class ExercisePlansViewModel : BaseViewModel
     /// Triggered when user taps "New Plan" button.
     /// Will later navigate to the create plan page.
     /// </summary>
-    private void OnCreateNew()
+    private async void OnCreateNew()
     {
-        // TODO: Replace this with navigation to a new plan form
-        Application.Current.MainPage.DisplayAlert("Coming Soon", "Create Plan UI will be built next", "OK");
+        await Shell.Current.GoToAsync("CreateExercisePlan");
     }
 }
