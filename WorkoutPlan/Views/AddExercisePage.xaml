@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WorkoutPlan.Views.AddExercisePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:WorkoutPlan.ViewModels"
+    Title="Add Exercise"
+    Padding="20">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AddExerciseViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="12">
+
+            <Entry Placeholder="Name" Text="{Binding Name}" />
+            <Entry Placeholder="Sets" Keyboard="Numeric" Text="{Binding Sets}" />
+            <Entry Placeholder="Repetitions" Keyboard="Numeric" Text="{Binding Repetitions}" />
+            <Entry Placeholder="Rest Time (seconds)" Keyboard="Numeric" Text="{Binding RestTimeSeconds}" />
+            <Editor Placeholder="Notes" Text="{Binding Notes}" AutoSize="TextChanges" />
+
+            <Button Text="Save Exercise" Command="{Binding SaveCommand}" />
+            <Button Text="Cancel" Command="{Binding CancelCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

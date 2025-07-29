@@ -43,7 +43,8 @@
                 <Label Text="Sat" />
             </FlexLayout>
 
-            <Button Text="➕ Add Exercises (Coming Soon)" />
+            <Button Text="➕ Add Exercise" Command="{Binding AddExerciseCommand}" />
+
 
             <Button Text="💾 Save Plan" Command="{Binding SaveCommand}" />
 
