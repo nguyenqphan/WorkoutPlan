@@ -14,6 +14,7 @@ public class CreateExercisePlanViewModel : BaseViewModel
     public ObservableCollection<Exercise> Exercises { get; set; } = new();
 
     public ICommand AddExerciseCommand { get; }
+    public ICommand DeleteExerciseCommand { get; }
 
     public CreateExercisePlanViewModel()
     {
@@ -26,6 +27,7 @@ public class CreateExercisePlanViewModel : BaseViewModel
         SaveCommand = new Command(async () => await SaveAsync());
 
         AddExerciseCommand = new Command(OnAddExercise);
+        DeleteExerciseCommand = new Command<Exercise>(OnDeleteExercise);
 
         // Register to receive messages when an exercise is added
         WeakReferenceMessenger.Default.Register<ExerciseAddedMessage>(this, (r, m) =>
@@ -69,5 +71,11 @@ public class CreateExercisePlanViewModel : BaseViewModel
     private async void OnAddExercise()
     {
         await Shell.Current.Navigation.PushModalAsync(new AddExercisePage());
+    }
+
+    private void OnDeleteExercise(Exercise exercise)
+    {
+        if (Exercises.Contains(exercise))
+            Exercises.Remove(exercise);
     }
 }

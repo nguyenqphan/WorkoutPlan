@@ -44,10 +44,39 @@
             </FlexLayout>
 
             <Button Text="➕ Add Exercise" Command="{Binding AddExerciseCommand}" />
+            <!-- Exercise List -->
+            <CollectionView ItemsSource="{Binding Exercises}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" Padding="10" Margin="5">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Sets, StringFormat='Sets: {0}'}" />
+                                    <Label Text="{Binding Repetitions, StringFormat='Reps: {0}'}" />
+                                    <Label Text="{Binding RestTimeSeconds, StringFormat='Rest: {0} sec'}" />
+                                    <Label Text="{Binding Notes}" FontAttributes="Italic" FontSize="Small" />
+                                </VerticalStackLayout>
 
+                                <!-- Delete Button -->
+                                <Button 
+                        Text="❌"
+                        BackgroundColor="Transparent"
+                        TextColor="Red"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteExerciseCommand}"
+                        CommandParameter="{Binding .}"
+                        Grid.Column="1"
+                        VerticalOptions="Center" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
             <Button Text="💾 Save Plan" Command="{Binding SaveCommand}" />
 
         </VerticalStackLayout>
     </ScrollView>
+    
+    
 </ContentPage>
